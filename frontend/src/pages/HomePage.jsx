@@ -15,7 +15,6 @@ function HomePage() {
   const getUserFileAndRepos=useCallback(async (username="vedangpandey")=>{
     setLoading(true)
     try {
-      console.log(username);
       const res= await fetch(`http://localhost:5000/api/users/profile/${username}`)
       const {repos,userProfile}=await res.json();
       setRepos(repos)
