@@ -1,3 +1,3 @@
 export const handleLoginWithGithub=()=>{
-    window.open(`/api/auth/github`,`self`)
+    window.open(`https://github-clone-woxs.onrender.com/api/auth/github`,`self`)
   }
