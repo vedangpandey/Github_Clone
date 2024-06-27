@@ -38,3 +38,6 @@ Authentication (Passport.js):
 
 Local strategy for username and password authentication.
 OAuth strategies for third-party authentication providers.
+
+
+![Screenshot 2024-06-28 000844](https://github.com/vedangpandey/Github_Clone/assets/117765019/c3b6a58f-bd7f-4f86-abdb-8ab18561a14c)
