@@ -15,20 +15,11 @@ function HomePage() {
   const getUserFileAndRepos=useCallback(async (username="vedangpandey")=>{
     setLoading(true)
     try {
-      const userRes= await fetch(`https://api.github.com/users/${username}`,{
-        headers:{
-          authorization:`token ${import.meta.env.VITE_GITHUB_API_KEY}`,
-        },
-      });
-      
-      const userProfile= await userRes.json()
-      
-      setUserProfile(userProfile);
-      const repoRes=await fetch(userProfile.repos_url)
-      const repos=await repoRes.json()
-      console.log(userProfile);
-      console.log(repos);
+      console.log(username);
+      const res= await fetch(`http://localhost:5000/api/users/profile/${username}`)
+      const {repos,userProfile}=await res.json();
       setRepos(repos)
+      setUserProfile(userProfile)
       return {userProfile,repos};
     } catch (error) {
       toast.error(error.message)
@@ -36,9 +27,11 @@ function HomePage() {
       setLoading(false);
     }
   },[])
+
   useEffect(()=>{
     getUserFileAndRepos();
   },[getUserFileAndRepos])
+
   const onSearch= async (e,username)=>{
     e.preventDefault();
     setLoading(true);
